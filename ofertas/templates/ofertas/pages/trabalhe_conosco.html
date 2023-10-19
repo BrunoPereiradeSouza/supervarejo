@@ -1,0 +1,30 @@
+{% load static %}
+{% include 'ofertas/partials/head.html' %}
+
+<body>
+    {% include 'ofertas/partials/header.html' %}
+    
+    <div class="container_2">
+        <h1>Trabalhe conosco</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="nome">Nome Completo:</label>
+            {{form.nome}}
+            <label for="email">Email:</label>
+            {{form.email}}
+            <label for="telefone">Telefone:</label>
+            {{form.telefone}}
+            <label for="endereco">Endereço:</label>
+            {{form.endereco}}
+            <label for="estado">Estado:</label>
+            {{form.estado}}
+            <label for="imagem">Anexar Currículo:</label>
+            {{form.curriculo}}
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    
+    {% include 'ofertas/partials/footer.html' %}
+</body>
+
+{% include 'ofertas/partials/script.html' %}

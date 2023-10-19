@@ -1,0 +1,751 @@
+/* VARIÁVEIS */
+:root {
+    --color-background: #FB530B;
+    --color-links: #151414;
+    --color-box: rgb(36, 35, 35);
+    --color-backbot: rgba(16, 15, 16, 0.96);
+    --color-hedlateral: #f4f1f1;
+    --color-black: black;
+    --color-font: #f5f5f5;  
+}
+
+/*CONFIGURAÇÕES PRINCIPAIS DA PÁGINA */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* INÍCIO PERSONALIZAÇÃO DO HEADER */
+.imglogo {
+    width: 50px;
+}
+
+.header {
+    background-color: var(--color-background);
+    box-shadow: 1px 1px 3px var(--color-box);
+    height: 7em;
+    justify-content: space-between;
+    padding: 0% 10% 0% 7%;
+    border-radius: 5px;
+}
+
+.linksnav,
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.linksnav {
+    gap: 3em;
+    z-index: 2;
+}
+
+.linksnav a {
+    text-decoration: none;
+    color: var(--color-links);
+    transition: 1s;
+    font-weight: bold;
+}
+
+.conteudo {
+    height: 100vh;
+    transition: 1s;
+}
+
+.botao_icon {
+    display: none;
+    background-color: transparent;
+    border: none;
+    color: var(--color-blackbot);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 840px) {
+    .botao_icon {
+        display: block;
+    }
+
+    .linksnav {
+        position: absolute;
+        top: 0;
+        flex-direction: column;
+        background-color: var(--color-hedlateral);
+        height: 100vw;
+        width: 30vw;
+        padding: 1em;
+        animation-duration: 1s;
+        margin-left: -100vw;
+
+    }
+
+}
+
+
+
+@keyframes menusider {
+    from {
+        margin-left: -100vw;
+    }
+
+    top {
+        margin-left: -10vw;
+    }
+}
+/* FIM PERSONALIZAÇÃO DO HEADER */
+
+/* INÍCIO FORMULÁRIO DE TRABALHE CONOSCO */
+.container_2 {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top:40px;
+    padding:50px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.container_2 h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.container_2 label {
+    display: block;
+    margin-top: 10px;
+}
+
+.container_2 input[type="text"],
+.container_2 input[type="email"],
+.container_2 input[type="tel"],
+.container_2 input[type="file"],
+.container_2 textarea,
+.container_2 select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.container_2 textarea {
+    height: 100px;
+}
+
+.container_2 button {
+    background-color: #0078d4;
+    color: #fff;
+    padding: 10px 50px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin:25px 0px 0px 0px;
+}
+/* FIM FORMULÁRIO DE TRABALHE CONOSCO */
+
+/* INÍCIO FORMULÁRIO DE CONTATO */
+.container {
+    margin: 30px auto;
+    max-width: 800px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.image {
+    flex: 1;
+    padding: 20px;
+}
+
+.image img {
+    max-width: 100%;
+    height:500px;
+    border-radius: 10px;
+}
+
+.form {
+    flex: 1;
+    padding: 20px;
+}
+
+.form h2 {
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    margin-right: 40px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    background: #0078d4;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+/* FIM FORMULÁRIO DE CONTATO */
+     
+/* INÍCIO DOS CARDS DE OFERTAS */
+.main_ofertas {
+    display: flex;
+    justify-content: center;
+}
+
+.main_ofertas_main {
+    margin-top: 1rem;  
+    display: flex;
+    flex-direction: column; 
+}
+
+.main_ofertas_main .principal {
+    margin-left: 8rem;
+    background-color: #dfe4e8;
+    width: 50%;
+    padding: 0.5rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.main_container_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin-top: 2rem;
+    background-color: #e2dddd;;
+    border-radius: 5px;
+    margin-top: 5rem;
+}
+
+.main_ofertas .main_container_card .economia {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    padding-bottom: 2rem;
+    background-color: var(--color-background);
+    border-radius: 5px 5px 0px 0px;
+}
+
+.main_ofertas .main_container_card .economia h1 {
+    margin-top: 2.5rem;
+    color: var(--color-font);
+    font-size: 1.5rem;
+}
+
+.main_ofertas .main_container_card .economia img {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 1rem;
+    margin-top: 2.5rem;
+}
+
+.main_ofertas .main_container_card .economia .ofertas_logo1 {
+    padding-right: 3rem;
+    width: 150px;
+    height: 70px;
+    margin-top: 1rem;
+}
+
+.main_ofertas .main_container_card .economia .ofertas_logo2 {
+    padding-left: 3rem;
+    width: 150px;
+    height: 70px;
+    margin-top: 1rem;
+}
+
+.container-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 3rem 1rem;
+}
+
+.card {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.card-description {
+    padding: 10px 20px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(1, 1fr);
+    background-color: yellow;
+    width: 140px;
+    height: 100px;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+.card h2 {
+    color: rgb(195, 2, 2);
+}
+
+.preço {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+    height: 60px;
+    text-align: center;
+    align-items: center;
+    color: black;
+}
+
+.preço .first {
+    font-size: 2rem;
+}
+
+.preço .final {
+    margin-top: 1rem;
+}
+.preço .cifrao {
+    margin-right: 5px;
+}
+
+h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.card-description {
+    font-size: 14px;
+    color: #777;
+}
+
+#footer_container_card {
+    background-color: var(--color-background);
+}
+
+#footer_container_card .whatsapp {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+    color: var(--color-font);
+}
+
+#footer_container_card .whatsapp p {
+    margin: 4px;
+}
+
+#footer_container_card .loc {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+    color: var(--color-font);
+}
+
+#footer_container_card .loc p {
+    margin-top: 5px;
+}
+
+#footer_container_card .ofertas_validas {
+    text-align: center;
+    color: var(--color-font);
+    margin-bottom: 1rem;
+}
+
+.ofertas_hr {
+    margin-bottom: 1rem;
+}
+
+#footer_container_card .lorem {
+    text-align: center;
+    margin: 0rem 2rem;
+    color: var(--color-font);
+    margin-bottom: 1rem;
+}
+
+#whatsapp {
+    background-color: #00e676;
+    width: 1.8rem;
+    height: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    color: var(--color-font);
+}
+
+#loc {
+    color: var(--color-font);
+    width: 1.8rem;
+    height: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+/* FIM DOS CARDS DE OFERTAS */
+
+/* INÍCIO PERSONALIZAÇÃO DO FOOTER*/
+footer {
+    width: 100%;
+}
+
+footer #footer_content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem;
+    background-color: var(--color-background);
+    gap: 1rem 6rem;
+    color: var(--color-font);
+    margin-top: 5rem;
+}
+
+footer #footer_content #request {
+    display: flex;
+    gap: 3rem;
+    text-align: center;
+}
+
+footer #footer_content #request h2 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 0.5rem;
+    padding-top: 2rem;
+}
+
+footer #footer_content #request p {
+    text-align: center;
+}
+
+footer #footer_content #request img {
+    width: 8rem;
+    margin-left: 3rem;
+    padding: 1rem 0rem;
+    margin-bottom: 0.5rem;
+}
+
+footer #footer_content #contact {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer #footer_content #contact h2 {
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    background-color: yellow;
+    color: black;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    padding: 0.5rem 0rem;
+    width: 250px;
+}
+
+footer #footer_content #contact .itens {
+    display: flex;justify-content: center;
+    gap: 0.75rem;
+    list-style: none;
+}
+
+footer #footer_content #contact .itens a {
+    text-decoration: none;
+    color: white;
+    transition: all 0.4s;
+    font-size: 0.9rem;
+}
+
+footer #footer_content #hr {
+    gap: 0;
+}
+
+footer #footer_content #description {
+    text-align: center;
+}
+
+footer #footer_content #description p {
+    font-size: 0.8rem;
+}
+
+footer #footer_content #social_media {
+    text-align: center;
+}
+
+footer #footer_content #social_media #footer_list {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+footer #footer_content #social_media p {
+    font-size: 0.8rem;
+}
+
+footer #footer_content #social_media #footer_list .footer_link {
+    font-size: 1.2rem;
+    color: var(--color-font);
+    display: flex;
+    height: 2rem;
+    width: 2.2rem;
+    color: white;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+#instagram {
+    background: linear-gradient(#7f37c9, #ff2992, #ff9807);
+}
+
+#facebook {
+    background-color: #4267b3;
+}
+
+#twiter {
+    background: linear-gradient(#36d8ff, #00acee, #66757f);
+}
+
+#linkedin {
+    background-color: #0077b5;
+}
+
+footer #footer_content #copyright {
+    text-align: center;
+}
+
+footer #footer_content #copyright p {
+    font-size: 0.6rem;
+}
+
+footer #footer_content #privacidade {
+    text-align: center;
+}
+
+footer #footer_content #privacidade p {
+    font-size: 0.6rem;
+}
+
+@media screen and (max-width: 850px) {
+    footer #footer_content {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    footer #footer_content #request {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    footer #footer_content #request img {
+        margin: auto;
+    }
+
+    footer #footer_content #request{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer #footer_content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer #footer_content #social_media #footer_list {
+        gap: 1.5rem;
+    }
+}
+/* INÍCIO PERSONALIZAÇÃO NOSSA HISTÓRIA */
+
+main {
+    width: 100%;
+    display: flex;
+    padding-bottom: 2rem;
+    flex-direction: column;
+    align-items: center;
+    background-image: url();
+}
+
+#historia_content {
+    background-color: #ff8400;
+    width: 60%;
+    height: 100%;
+    padding: 1rem;
+    margin: 5rem 1rem 3rem 1rem;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+#historia_content h2 {  
+    font-size: 1.5rem;
+    padding: 10px 0px 3px 5px;
+}
+
+#historia_content hr{
+    padding-bottom: 1px;
+    margin-bottom:20px;
+}
+
+#historia_content .historia_text {
+    display: flex;
+    text-align: justify;
+    gap: 3rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+/* FIM PERSONALIZAÇÃO NOSSA HISTÓRIA */
+
+/* INÍCIO PERSONALIZAÇÃO TRABALHE CONOSCO */
+#trabalhe_content {
+    background-color: rgba(5, 104, 253, 0.055);
+    padding: 1rem;
+    margin: 5rem 2rem;
+    width: 90%;
+    border-radius:10px;
+}
+
+#trabalhe_content img {
+    width: 30rem;
+    height: 30rem;
+    border-radius: 5px;
+}
+
+#trabalhe_content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.1rem;
+    margin-left: 1.2rem;
+}
+
+#historia_content .historia_text p {
+    font-size: 1.1rem;
+}
+
+#trabalhe_content .img_list {
+    display: flex;
+    gap: 2.5rem;
+}
+
+#trabalhe_content .img_list ul {
+    font-size:  1.5rem;
+    padding-left: 4rem;
+    text-align: justify;
+    padding-right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-top: 2rem;
+}
+
+#trabalhe_content button {
+    background-color: var(--color-background);
+}
+
+#trabalhe_content .img_list ul .button {
+    list-style: none;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#trabalhe_content .img_list ul .button button {
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 1rem 6rem;
+}
+/* FIM PERSONALIZAÇÃO TRABALHE CONOSCO */
+
+/* INÍCIO PERSONALIZAÇÃO OFERTAS */
+#ofertas_content {
+    background-color: rgba(5, 104, 253, 0.055);
+    margin: 2rem;
+    padding: 1rem;
+    display: flex;
+    gap: 5rem;
+    width: 90%;
+}
+
+#ofertas_content .ofertas_left {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    align-items: center;
+}
+
+#ofertas_content .ofertas_right {
+    padding-left: 2rem;
+}
+
+#ofertas_content .ofertas_right ul {
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    gap:4rem;
+}
+
+#ofertas_content .ofertas_right ul li {
+    background-color: rgba(9, 97, 250, 0.089);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: larger;
+    font-weight: 550;
+}
+
+#ofertas_content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#ofertas_content h3 {
+        color: #615f5f;
+}
+
+
+#ofertas_content .ofertas_left button {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+    width: 250px;
+    border-radius: 10px;
+    background-color: var(--color-background);
+}
+
+#ofertas_content .ofertas_left img {
+    margin-top: 1rem;
+    border-radius: 5px;
+}

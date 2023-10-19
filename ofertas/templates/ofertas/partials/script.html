@@ -1,0 +1,41 @@
+<script>
+    var header = document.getElementById('header');
+    var linksnav = document.getElementById('linksnav');
+    var conteudo = document.getElementById('conteudo');
+    var menusider = false;
+
+
+    function toqmenu() {
+        menusider = !menusider;
+        if (menusider) {
+            linksnav.style.marginLeft = '-10vw';
+            linksnav.style.animationName = 'menusider';
+            conteudo.style.filter = 'blur(2px)';
+
+
+        }
+        else {
+            linksnav.style.marginLeft = '-100vw';
+            linksnav.style.animationName = '';
+            conteudo.style.filter = '';
+        }
+
+
+    }
+
+
+    function closemenu() {
+        if (menusider) {
+            toqmenu();
+        }
+    }
+
+
+    window.addEventListener('resize', function (event) {
+        if (window.innerWidth > 800 && menusider) {
+            toqmenu();
+        }
+    });
+
+
+</script>

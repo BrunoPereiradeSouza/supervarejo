@@ -1,0 +1,66 @@
+{% load static %}
+{% include 'ofertas/partials/head.html' %}
+
+<body>
+    {% include 'ofertas/partials/header.html' %}
+
+    <main>
+
+        <div id="historia_content">
+            <h2>Nossa História</h2>
+            <hr style="color: black;">
+            <div class="historia_text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis iure est corporis ab. Earum cum
+                    reprehenderit dolore commodi, voluptatibus perspiciatis officia cumque, veritatis eos, cupiditate
+                    maiores neque iusto optio nostrum.
+                    Velit et iusto pariatur culpa exercitationem corporis, hic ducimus nihil soluta iure repellendus in
+                    quasi
+                    doloribus totam similique optio Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas
+                    facilis eius nobis ad excepturi quasi expedita illo animi velit laboriosam iste praesentium tenetur
+                    enim veniam sit in ab, impedit sequi.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis iure est corporis ab. Earum cum
+                    reprehenderit dolore commodi, voluptatibus perspiciatis officia cumque, veritatis eos, cupiditate
+                    maiores neque iusto optio nostrum.
+                    Velit et iusto pariatur culpa exercitationem corporis, hic ducimus nihil soluta iure repellendus in
+                    eligendi voluptates? Sed non distinctio repellendus iure, consequatur eius aspernatur, cupiditate
+                    quasi
+                    enim veniam sit in ab, impedit sequi.</p>
+            </div>
+        </div>
+
+        <div id="trabalhe_content">
+            <h2>Já pensou em trabalhar com a gente?</h2>
+            <div class="img_list">
+                <img src="{% static 'ofertas/img/arara.jpeg' %}" alt="arara">
+                <ul>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                    <li>At dignissimos saepe ipsam adipisci obcaecati distinctio</li>
+                    <li>inventore illum magni eum, vel neque aut?</li>
+                    <li>Fugit illo tempora ad voluptatibus minus fuga enim.</li>
+                    <li class="button"><button>Enviar curriculo</button></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="ofertas_content">
+            <div class="ofertas_left">
+                <h2>Confira as nossas ofertas especias</h2>
+                <h3>Qualidade e variedade de ofertas pensando em você, CLIENTE!</h3>
+                <img src="{% static 'ofertas/img/arara.jpeg' %}" alt="">
+                <button>Ver ofertas</button>
+            </div>
+            <div class="ofertas_right">
+                <ul>
+                    <li>Ofertas toda semana</li>
+                    <li>Ofertas quentíssimas</li>
+                    <li>Descontos pensando em você consumidor</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    {% include 'ofertas/partials/footer.html' %}
+</body>
+
+{% include 'ofertas/partials/script.html' %}
