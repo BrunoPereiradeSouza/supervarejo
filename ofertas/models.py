@@ -18,4 +18,9 @@ class Candidato(models.Model):
     telefone = models.CharField(max_length=11)
     endereco = models.CharField(max_length=100)
     estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
-    curriculo = models.FileField()
+    curriculo = models.ImageField(upload_to='static/ofertas/img')
+
+class Produto(models.Model):
+    nome_produto = models.CharField(max_length=50)
+    preco = models.FloatField()
+    imagem = models.ImageField(upload_to='static/ofertas/img')

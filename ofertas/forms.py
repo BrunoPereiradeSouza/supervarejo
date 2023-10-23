@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Candidato
+from .models import Candidato, Produto
 
 class CandidatoForm(ModelForm):
 
@@ -14,4 +14,15 @@ class CandidatoForm(ModelForm):
             'endereco': forms.TextInput(),
             'estado': forms.Select(),
             'curriculo': forms.FileInput()
+        }
+
+class ProdutoForm(ModelForm):
+
+    class Meta:
+        model = Produto
+        fields = '__all__'
+        widgets = {
+            'nome_produto': forms.TextInput(attrs={'class': 'form-control'}),
+            'preco': forms.NumberInput(attrs={'class': 'form-control'}),
+            'imagem_produto': forms.FileInput(attrs={'class': 'form-control'})
         }

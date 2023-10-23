@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Oferta, Estado, Candidato
+from .models import Oferta, Estado, Candidato, Produto
 
 @admin.register(Oferta)
 class OfertaAdmin(admin.ModelAdmin):
@@ -12,3 +12,7 @@ class EstadoAdmin(admin.ModelAdmin):
 @admin.register(Candidato)
 class CandidatoAdmin(admin.ModelAdmin):
     list_display = ('nome', 'email', 'telefone', 'endereco', 'estado')
+
+@admin.register(Produto)
+class ProdutoAdmin(admin.ModelAdmin):
+    list_display = ('nome_produto', 'preco', 'imagem')
