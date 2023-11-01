@@ -1,14 +1,15 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, redirect
 from .forms import CandidatoForm, ProdutoForm
-from .models import Candidato, Produto
+from .models import Produto
+
 
 def index(request):
 
     return render(request, 'ofertas/pages/index.html')
 
+
 def trabalhe_conosco(request):
     if request.method == 'POST':
-        file = request.FILES
         form = CandidatoForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
@@ -16,8 +17,9 @@ def trabalhe_conosco(request):
             return redirect('index')
     else:
         form = CandidatoForm()
-    
-    return render(request, 'ofertas/pages/trabalhe_conosco.html', {'form': form})
+    return render(request, 'ofertas/pages/trabalhe_conosco.html', 
+                  {'form': form})
+
 
 def ofertas(request):
     ofertas = Produto.objects.all()
@@ -27,7 +29,6 @@ def ofertas(request):
 
 def ofertas_criar(request):
     if request.method == 'POST':
-        file = request.FILES
         form = ProdutoForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
@@ -37,6 +38,7 @@ def ofertas_criar(request):
         form = ProdutoForm()
 
     return render(request, 'ofertas/pages/form_oferta.html', {'form': form})
+
 
 def contato(request):
 
