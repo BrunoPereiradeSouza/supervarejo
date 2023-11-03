@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CandidatoForm, ProdutoForm
 from .models import Produto
 
@@ -25,6 +25,21 @@ def ofertas(request):
     ofertas = Produto.objects.all()
     context = {'ofertas': ofertas}
     return render(request, 'ofertas/pages/ofertas.html', context)
+
+
+def ofertas_editar(request, id):
+    oferta = get_object_or_404(Produto, id=id)
+
+    if request.method == 'POST':
+        form = ProdutoForm(request.POST, instance=oferta)
+
+        if form.is_valid():
+            form.save()
+            return redirect('ofertas')
+    else:
+        form = ProdutoForm(instance=oferta)
+
+    return render(request, 'ofertas/pages/for_oferta.html', {'form': form})
 
 
 def ofertas_criar(request):
