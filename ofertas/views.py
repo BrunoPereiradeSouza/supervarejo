@@ -42,6 +42,13 @@ def ofertas_editar(request, id):
     return render(request, 'ofertas/pages/for_oferta.html', {'form': form})
 
 
+
+def oferta_remover(request, id):
+    oferta = get_object_or_404(Produto, id=id)
+    oferta.delete()
+    return redirect('ofertas')
+
+
 def ofertas_criar(request):
     if request.method == 'POST':
         form = ProdutoForm(request.POST, request.FILES)
