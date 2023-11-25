@@ -1,0 +1,237 @@
+/* VARIÁVEIS */
+:root {
+    --color-background: #FB530B;
+    --color-links: #151414;
+    --color-box: rgb(36, 35, 35);
+    --color-backbot: rgba(16, 15, 16, 0.96);
+    --color-hedlateral: #f4f1f1;
+    --color-black: black;
+    --color-font: #f5f5f5;  
+}
+
+/*CONFIGURAÇÕES PRINCIPAIS DA PÁGINA */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}  
+
+
+/* INÍCIO DOS CARDS DE OFERTAS */
+#master {
+    display: flex;
+    flex-direction: column;
+}
+
+.main_ofertas {
+    display: flex;
+    justify-content: center;
+}
+
+.main_ofertas_main {
+    margin-top: 5rem;  
+    display: flex;
+    flex-direction: column; 
+}
+
+.main_ofertas_main .principal {
+    margin-left: 8rem;
+    background-color: #dfe4e8;
+    width: 50%;
+    padding: 0.5rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.main_container_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin-top: 2rem;
+    background-color: #e2dddd;;
+    border-radius: 5px;
+    margin-top: 5rem;
+}
+
+.main_ofertas .main_container_card .economia {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    padding-bottom: 2rem;
+    background-color: var(--color-background);
+    border-radius: 5px 5px 0px 0px;
+}
+
+.main_ofertas .main_container_card .economia h1 {
+    margin-top: 2.5rem;
+    color: var(--color-font);
+    font-size: 1.5rem;
+}
+
+.main_ofertas .main_container_card .economia img {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 1rem;
+    margin-top: 2.5rem;
+}
+
+.main_ofertas .main_container_card .economia .ofertas_logo1 {
+    padding-right: 3rem;
+    width: 150px;
+    height: 70px;
+    margin-top: 1rem;
+}
+
+.main_ofertas .main_container_card .economia .ofertas_logo2 {
+    padding-left: 3rem;
+    width: 150px;
+    height: 70px;
+    margin-top: 1rem;
+}
+
+.container-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 3rem 1rem;
+}
+
+.card {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: yellow;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    
+}
+
+.card-description {
+    padding: 5px 10px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    height: 100%;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+.card-description h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.card-description .preco_antigo {
+    margin-bottom: 5px;
+    color: red;
+    margin: 0, 0, 5, 0;
+    font-size: 20px;
+}
+
+.card-description .preco_word {
+    margin: 0;
+    color: black;
+}
+
+.card-description .novo_preco {
+    color: black;
+    font-size: 36px;
+    margin: 0;
+    padding: 0;
+}
+
+#footer_container_card {
+    background-color: var(--color-background);
+}
+
+#footer_container_card .whatsapp {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+    color: var(--color-font);
+}
+
+#footer_container_card .whatsapp p {
+    margin: 4px;
+}
+
+#footer_container_card .loc {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+    color: var(--color-font);
+}
+
+#footer_container_card .loc p {
+    margin-top: 5px;
+}
+
+#footer_container_card .ofertas_validas {
+    text-align: center;
+    color: var(--color-font);
+    margin-bottom: 1rem;
+}
+
+.ofertas_hr {
+    margin-bottom: 1rem;
+}
+
+#footer_container_card .lorem {
+    text-align: center;
+    margin: 0rem 2rem;
+    color: var(--color-font);
+    margin-bottom: 1rem;
+}
+
+#whatsapp {
+    background-color: #00e676;
+    width: 1.8rem;
+    height: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    color: var(--color-font);
+}
+
+#loc {
+    color: var(--color-font);
+    width: 1.8rem;
+    height: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+/* FIM DOS CARDS DE OFERTAS */
+
+/* CRIAR OFERTAS */
+.title_criar_oferta {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.form_oferta {
+    max-width: 800px;
+    margin: 0 auto;
+}

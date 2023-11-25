@@ -3,27 +3,36 @@
 
 <body>
     {% include 'ofertas/partials/header.html' %}
-    
+
     <div class="container_2">
         <h1>Trabalhe conosco</h1>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <label for="nome">Nome Completo:</label>
-            {{form.nome}}
-            <label for="email">Email:</label>
-            {{form.email}}
-            <label for="telefone">Telefone:</label>
-            {{form.telefone}}
-            <label for="endereco">Endereço:</label>
-            {{form.endereco}}
-            <label for="estado">Estado:</label>
-            {{form.estado}}
-            <label for="imagem">Anexar Currículo:</label>
-            {{form.curriculo}}
+            <div class="mb-3">
+                <label for="nome" class="form-control">Nome Completo:  {{form.nome}}</label>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-control">Email: {{form.email}}</label>
+            </div>
+            <div class="mb-3">
+                <label for="telefone" class="form-control">Telefone: {{form.telefone}}</label>
+            </div>
+            <div class="mb-3">
+                <label for="endereco" class="form-control">Endereço: {{form.endereco}}</label>
+            </div>
+            <div class="mb-3">
+                <label for="estado" class="form-control">Estado: {{form.endereco}}</label>
+            </div>
+            <div class="mb-3">
+                <label for="vaga_emprego" class="form-control">Seleciona a vaga desejada: {{form.vaga_emprego}}</label>
+            </div>
+            <div class="mb-3">
+                <label for="imagem" class="form-control">Anexar Currículo: {{form.curriculo}}</label>
+            </div>
             <button type="submit">Enviar</button>
         </form>
     </div>
-    
+
     {% include 'ofertas/partials/footer.html' %}
 </body>
 

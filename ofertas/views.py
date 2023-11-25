@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CandidatoForm, ProdutoForm
-from .models import Produto
+from .forms import CandidatoForm, OfertaForm
+from .models import Oferta
 
 
 def index(request):
@@ -22,42 +22,41 @@ def trabalhe_conosco(request):
 
 
 def ofertas(request):
-    ofertas = Produto.objects.all()
+    ofertas = Oferta.objects.all()
     context = {'ofertas': ofertas}
     return render(request, 'ofertas/pages/ofertas.html', context)
 
 
 def ofertas_editar(request, id):
-    oferta = get_object_or_404(Produto, id=id)
+    oferta = get_object_or_404(Oferta, id=id)
 
     if request.method == 'POST':
-        form = ProdutoForm(request.POST, instance=oferta)
+        form = OfertaForm(request.POST, instance=oferta)
 
         if form.is_valid():
             form.save()
             return redirect('ofertas')
     else:
-        form = ProdutoForm(instance=oferta)
+        form = OfertaForm(instance=oferta)
 
     return render(request, 'ofertas/pages/for_oferta.html', {'form': form})
 
 
-
 def oferta_remover(request, id):
-    oferta = get_object_or_404(Produto, id=id)
+    oferta = get_object_or_404(Oferta, id=id)
     oferta.delete()
     return redirect('ofertas')
 
 
 def ofertas_criar(request):
     if request.method == 'POST':
-        form = ProdutoForm(request.POST, request.FILES)
+        form = OfertaForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            form = ProdutoForm()
+            form = OfertaForm()
             return redirect('ofertas')
     else:
-        form = ProdutoForm()
+        form = OfertaForm()
 
     return render(request, 'ofertas/pages/form_oferta.html', {'form': form})
 

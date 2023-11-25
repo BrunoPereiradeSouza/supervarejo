@@ -1,0 +1,66 @@
+/* VARIÁVEIS */
+:root {
+    --color-background: #FB530B;
+    --color-links: #151414;
+    --color-box: rgb(36, 35, 35);
+    --color-backbot: rgba(16, 15, 16, 0.96);
+    --color-hedlateral: #f4f1f1;
+    --color-black: black;
+    --color-font: #f5f5f5;  
+}
+
+/*CONFIGURAÇÕES PRINCIPAIS DA PÁGINA */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}  
+
+
+.container_2 {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top:40px;
+    padding:50px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.container_2 h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.container_2 label {
+    display: block;
+    margin-top: 10px;
+}
+
+.container_2 input[type="text"],
+.container_2 input[type="email"],
+.container_2 input[type="tel"],
+.container_2 input[type="file"],
+.container_2 textarea,
+.container_2 select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.container_2 textarea {
+    height: 100px;
+}
+
+.container_2 button {
+    background-color: #0078d4;
+    color: #fff;
+    padding: 10px 50px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin:25px 0px 0px 0px;
+}

@@ -13,143 +13,26 @@
                         <h1>CONFIRA AS NOSSAS OFERTAS</h1>
                         <img src="{% static 'ofertas/img/carrinho.png' %}" alt="carrinho de compras">
                     </div>
+
                     <div class="container-card">
+                        {% for oferta in ofertas %}
                         <div class="card">
-                            <img src="{% static 'ofertas/img/produto.jpg' %}" alt="Produto 10">
+                            <img src="{{oferta.imagem}}" alt="produto">
                             <div class="card-description">
                                 <strong>
-                                    <h2>Produto 1</h2>
+                                    <h2>{{oferta.nome_produto}}</h2>
                                 </strong>
                                 <strong>
-                                    <div class="preço">
-                                        <p class="cifrao">R$</p>
-                                        <p class="first">0.</p>
-                                        <p class="final">00</p>
-                                    </div>
+                                        <p class="preco_antigo"><s>DE R$ {{oferta.valor_antigo}}</s></p>
+                                        <p class="preco_word">POR</p>
+                                        <p class="novo_preco">R$ {{oferta.novo_valor}}</p>
                                 </strong>
                             </div>
                         </div>
-                        <div class="card">
-                            <img src="{% static 'ofertas/img/produto.jpg' %}" alt="Produto 10">
-                            <div class="card-description">
-                                <strong>
-                                    <h2>Produto 1</h2>
-                                </strong>
-                                <strong>
-                                    <div class="preço">
-                                        <p class="cifrao">R$</p>
-                                        <p class="first">0.</p>
-                                        <p class="final">00</p>
-                                    </div>
-                                </strong>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="{% static 'ofertas/img/produto.jpg' %}" alt="Produto 10">
-                            <div class="card-description">
-                                <strong>
-                                    <h2>Produto 1</h2>
-                                </strong>
-                                <strong>
-                                    <div class="preço">
-                                        <p class="cifrao">R$</p>
-                                        <p class="first">0.</p>
-                                        <p class="final">00</p>
-                                    </div>
-                                </strong>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="{% static 'ofertas/img/produto.jpg' %}" alt="Produto 10">
-                            <div class="card-description">
-                                <strong>
-                                    <h2>Produto 1</h2>
-                                </strong>
-                                <strong>
-                                    <div class="preço">
-                                        <p class="cifrao">R$</p>
-                                        <p class="first">0.</p>
-                                        <p class="final">00</p>
-                                    </div>
-                                </strong>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="{% static 'ofertas/img/produto.jpg' %}" alt="Produto 10">
-                            <div class="card-description">
-                                <strong>
-                                    <h2>Produto 1</h2>
-                                </strong>
-                                <strong>
-                                    <div class="preço">
-                                        <p class="cifrao">R$</p>
-                                        <p class="first">0.</p>
-                                        <p class="final">00</p>
-                                    </div>
-                                </strong>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="{% static 'ofertas/img/produto.jpg' %}" alt="Produto 10">
-                            <div class="card-description">
-                                <strong>
-                                    <h2>Produto 1</h2>
-                                </strong>
-                                <strong>
-                                    <div class="preço">
-                                        <p class="cifrao">R$</p>
-                                        <p class="first">0.</p>
-                                        <p class="final">00</p>
-                                    </div>
-                                </strong>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="{% static 'ofertas/img/produto.jpg' %}" alt="Produto 10">
-                            <div class="card-description">
-                                <strong>
-                                    <h2>Produto 1</h2>
-                                </strong>
-                                <strong>
-                                    <div class="preço">
-                                        <p class="cifrao">R$</p>
-                                        <p class="first">0.</p>
-                                        <p class="final">00</p>
-                                    </div>
-                                </strong>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="{% static 'ofertas/img/produto.jpg' %}" alt="Produto 10">
-                            <div class="card-description">
-                                <strong>
-                                    <h2>Produto 1</h2>
-                                </strong>
-                                <strong>
-                                    <div class="preço">
-                                        <p class="cifrao">R$</p>
-                                        <p class="first">0.</p>
-                                        <p class="final">00</p>
-                                    </div>
-                                </strong>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="{% static 'ofertas/img/produto.jpg' %}" alt="Produto 10">
-                            <div class="card-description">
-                                <strong>
-                                    <h2>Produto 1</h2>
-                                </strong>
-                                <strong>
-                                    <div class="preço">
-                                        <p class="cifrao">R$</p>
-                                        <p class="first">0.</p>
-                                        <p class="final">00</p>
-                                    </div>
-                                </strong>
-                            </div>
-                        </div>
+                        {% endfor %}
+
                     </div>
+                    
                     <div id="footer_container_card">
                         <div class="whatsapp">
                             <i id='whatsapp' class="fa-brands fa-whatsapp"></i>
@@ -174,7 +57,6 @@
         <!-- FIM DO CONTEÚDO DO MEIO -->
     </div>
     <!-- FIM DO CONTEÚDO DO MEIO -->
-    </div>
 
     {% include 'ofertas/partials/footer.html' %}
 </body>
