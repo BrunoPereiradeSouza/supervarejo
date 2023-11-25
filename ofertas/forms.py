@@ -9,13 +9,13 @@ class CandidatoForm(ModelForm):
         model = Candidato
         fields = '__all__'
         widgets = {
-            'nome': forms.TextInput(),
-            'email': forms.EmailInput(),
-            'telefone': forms.TextInput(),
-            'endereco': forms.TextInput(),
-            'estado': forms.Select(),
-            'curriculo': forms.FileInput(),
-            'vaga_emprego': forms.Select()
+            'nome': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'telefone': forms.TextInput(attrs={'class': 'form-control'}),
+            'endereco': forms.TextInput(attrs={'class': 'form-control'}),
+            'estado': forms.Select(attrs={'class': 'form-control'}),
+            'curriculo': forms.FileInput(attrs={'class': 'form-control'}),
+            'vaga_emprego': forms.Select(attrs={'class': 'form-control'})
         }
 
 

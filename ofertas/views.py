@@ -35,17 +35,17 @@ def ofertas_editar(request, id):
 
         if form.is_valid():
             form.save()
-            return redirect('ofertas')
+            return redirect('ofertas_admin')
     else:
         form = OfertaForm(instance=oferta)
 
-    return render(request, 'ofertas/pages/for_oferta.html', {'form': form})
+    return render(request, 'ofertas/pages/form_oferta.html', {'form': form})
 
 
 def oferta_remover(request, id):
     oferta = get_object_or_404(Oferta, id=id)
     oferta.delete()
-    return redirect('ofertas')
+    return redirect('ofertas_admin')
 
 
 def ofertas_criar(request):
@@ -54,7 +54,7 @@ def ofertas_criar(request):
         if form.is_valid():
             form.save()
             form = OfertaForm()
-            return redirect('ofertas')
+            return redirect('ofertas_admin')
     else:
         form = OfertaForm()
 
@@ -64,3 +64,10 @@ def ofertas_criar(request):
 def contato(request):
 
     return render(request, 'ofertas/pages/contato.html')
+
+
+def ofertas_admin(request):
+    ofertas = Oferta.objects.all()
+    num_ofertas = Oferta.objects.count()
+    context = {'ofertas': ofertas, 'num_ofertas': num_ofertas}
+    return render(request, 'ofertas/pages/ofertas_admin.html', context)
