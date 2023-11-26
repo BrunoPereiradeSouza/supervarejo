@@ -232,6 +232,40 @@
 }
 
 .form_oferta {
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
+    padding: 3rem 0;
+    
+}
+
+.form_oferta .title_criar_oferta {
+    margin-bottom: 2.5rem;
+}
+
+.form_oferta button {
+    margin-top: 2rem;
+    padding: 0.7rem 1.7rem;
+    border-radius: .5rem;
+    transition: all 300ms ease-in-out;
+    box-shadow: -.5rem .5rem 1rem rgba(0, 0, 0, .2);
+}
+
+.form_oferta button:hover {
+    transform: scale(1.06);
+    box-shadow: -.8rem .8rem 1.8rem rgba(0, 0, 0, .25);
+}
+
+
+.h2_admin {
+    margin: 4rem 0;
+    text-align: center;
+}
+
+.main-content-admin {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+td, th {
+    text-align: center;
 }

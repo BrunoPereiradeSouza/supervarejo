@@ -2,7 +2,8 @@
 
 <body>
 
-    <h2>Lista de Ofertas</h2>
+    <h2 class="h2_admin">Lista de Ofertas</h2>
+    <div class="main-content-admin">
         <table class=" table table-bordered">
             <thead>
                 <tr>
@@ -17,16 +18,17 @@
                 {% for oferta in ofertas %}
                 <tr>
                     <td>{{oferta.nome_produto}}</td>
-                    <td>{{oferta.valor_antigo}}</td>
-                    <td>{{oferta.novo_valor}}</td>
+                    <td>R$ {{oferta.valor_antigo}}</td>
+                    <td>R$ {{oferta.novo_valor}}</td>
                     <td>{{oferta.imagem}}</td>
                     <td>
-                        <a href="{% url 'ofertas_editar' id=oferta.id %}" class="btn btn-primary btm-sm">Editar</a>
-                        <a href="{% url 'ofertas_remover' id=oferta.id %}" class="btn btn-danger btm-sm">Remover</a>
+                        <a href="{% url 'ofertas_editar' id=oferta.id %}" class="btn btn-primary btm-sm"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="{% url 'ofertas_remover' id=oferta.id %}" class="btn btn-danger btm-sm"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
+    </div>
 
 </body>

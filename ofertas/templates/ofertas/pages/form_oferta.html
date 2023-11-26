@@ -6,7 +6,7 @@
     <form class="form_oferta" method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
-        <div class="mb-3">
+        <div class="mb-3 campo_oferta">
             <h1 class="title_criar_oferta">Cadastrar nova oferta</h1>
             <label for="nome_produto" class="form-control">Nome do Produto: {{form.nome_produto}}</label>
         </div>
