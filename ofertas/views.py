@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CandidatoForm, OfertaForm
+from .forms import CandidatoForm, OfertaForm, UsuarioForm
 from .models import Oferta
 
 
@@ -71,3 +71,14 @@ def ofertas_admin(request):
     num_ofertas = Oferta.objects.count()
     context = {'ofertas': ofertas, 'num_ofertas': num_ofertas}
     return render(request, 'ofertas/pages/ofertas_admin.html', context)
+
+
+def cadastrar_usuario(request):
+    if request.method == 'POST':
+        form = UsuarioForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = UsuarioForm()
+    else:
+        form = UsuarioForm()
+    return render(request, 'ofertas/pages/cadastro.html', {'form': form})

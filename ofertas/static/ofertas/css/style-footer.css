@@ -80,7 +80,8 @@ footer #footer_content #contact a {
 
 
 footer #footer_content #contact .itens {
-    display: flex;justify-content: center;
+    display: flex;
+    justify-content: center;
     gap: 0.75rem;
     list-style: none;
 }

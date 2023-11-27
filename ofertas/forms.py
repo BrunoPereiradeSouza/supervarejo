@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Candidato, Oferta
+from .models import Candidato, Oferta, Usuario
 
 
 class CandidatoForm(ModelForm):
@@ -29,4 +29,16 @@ class OfertaForm(ModelForm):
             'valor_antigo': forms.NumberInput(attrs={'class': 'form-control'}),
             'novo_valor': forms.NumberInput(attrs={'class': 'form-control'}),
             'imagem_produto': forms.FileInput(attrs={'class': 'form-control'})
+        }
+
+
+class UsuarioForm(ModelForm):
+
+    class Meta:
+        model = Usuario
+        fields = '__all__'
+        widgets = {
+            'nome_usuario': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'senha': forms.PasswordInput(attrs={'class': 'form-control'})
         }

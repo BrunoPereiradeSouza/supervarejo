@@ -10,5 +10,6 @@ urlpatterns = [
     path('trabalheconosco/', views.trabalhe_conosco, name='trabalhe_conosco'),
     path('ofertas/editar<int:id>/', views.ofertas_editar, name='ofertas_editar'),
     path('ofertas/remover<int:id>', views.oferta_remover, name='ofertas_remover'),
-    path('ofertas/admin/', views.ofertas_admin, name='ofertas_admin')
+    path('ofertas/admin/', views.ofertas_admin, name='ofertas_admin'),
+    path('cadastro/', views.cadastrar_usuario, name='cadastro')
 ]

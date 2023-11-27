@@ -5,7 +5,7 @@ class Oferta(models.Model):
     nome_produto = models.CharField(max_length=100)
     valor_antigo = models.FloatField()
     novo_valor = models.FloatField()
-    imagem = models.ImageField(upload_to='static/ofertas/img')
+    imagem = models.ImageField(upload_to='media')
 
 
 class Estado(models.Model):
@@ -37,3 +37,9 @@ class Candidato(models.Model):
 
     def __str__(self):
         return self.nome
+
+
+class Usuario(models.Model):
+    nome_usuario = models.CharField(max_length=150)
+    email = models.EmailField()
+    senha = models.CharField(max_length=20)
