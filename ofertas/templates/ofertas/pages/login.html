@@ -3,14 +3,14 @@
 <body>
     
     {% include 'ofertas/partials/header.html' %}
-    
+
     {% include 'ofertas/partials/messages.html' %}
 
         <div class="main-content-cadastro">
 
-            <h2>Criar seu cadastro</h2>
+            <h2>Faça login com seu usuário e senha</h2>
 
-            <form method="post" action="{% url 'cadastro' %}">
+            <form method="post" action="{% url 'login' %}">
                 {% csrf_token %}
 
                 <div class="mb-3">
@@ -18,10 +18,6 @@
                    <input type="text" name="username" class="form-control">
                 </div>
 
-                <div class="mb-3">
-                    Email:
-                    <input type="email" name="email" class="form-control">
-                </div>
 
                 <div class="mb-3">
                     Senha:
@@ -29,7 +25,7 @@
                 </div>
                 
                 <div class="main-button">
-                    <button type="submit" class="button-cadastro">criar seu cadastro</button>
+                    <button type="submit" class="button-cadastro">Fazer login</button>
                 </div>
 
             </form>

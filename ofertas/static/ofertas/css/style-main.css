@@ -6,7 +6,36 @@
     --color-backbot: rgba(16, 15, 16, 0.96);
     --color-hedlateral: #f4f1f1;
     --color-black: black;
-    --color-font: #f5f5f5;  
+    --color-font: #f5f5f5;
+    --color-info-light: #cce5ff;
+    --color-debug-light: #cce5ff;
+    --color-success-light: #d4edda;
+    --color-alert-light: #fff3cd;
+    --color-warning-light: #fff3cd;
+    --color-error-light: #f8d7da;
+
+    --color-dark-text: #444;
+    --color-info-dark: #4d86c4;
+    --color-debug-dark: #4d86c4;
+    --color-success-dark: #4a9c5d;
+    --color-alert-dark: #927f40;
+    --color-warning-dark: #927f40;
+    --color-error-dark: #da525d;
+
+    --color-gray-0: #f9f9f9;
+    --color-gray-1: #e0e0e0;
+    --color-gray-2: #c7c7c7;
+    --color-gray-3: #aeaeae;
+    --color-gray-4: #959595;
+    --color-gray-5: #7d7d7d;
+    --color-gray-6: #646464;
+    --color-gray-7: #4b4b4b;
+    --color-gray-8: #323232;
+    --color-gray-9: #191919;
+
+    --spacing-gutter-medium: 3rem;
+    --spacing-gutter-large: 4rem;
+
 }
 
 main {
@@ -24,7 +53,7 @@ main {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}  
+}
 
 /* INÍCIO PERSONALIZAÇÃO OFERTAS */
 #ofertas_content {
@@ -69,7 +98,7 @@ main {
     margin-top: 6.3rem;
     display: flex;
     flex-direction: column;
-    gap:4rem;
+    gap: 4rem;
 }
 
 #ofertas_content .ofertas_right ul li {
@@ -78,7 +107,7 @@ main {
     border-radius: 8px;
     font-size: larger;
     font-weight: 550;
-    padding-left:6rem ;
+    padding-left: 6rem;
 }
 
 #ofertas_content h2 {
@@ -87,7 +116,7 @@ main {
 }
 
 #ofertas_content h3 {
-        color: #615f5f;
+    color: #615f5f;
 }
 
 
@@ -112,7 +141,7 @@ main {
     padding: 1rem;
     margin: 6rem 2rem 6rem 2rem;
     width: 90%;
-    border-radius:10px;
+    border-radius: 10px;
 }
 
 #trabalhe_content img {
@@ -123,20 +152,22 @@ main {
 
 #trabalhe_content h2 {
     font-size: 1.8rem;
-    margin-top:20px;
-    margin-bottom: 10px; 
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
-#trabalhe_content .img_list, .trabalheh2, .trabalheh3{
+#trabalhe_content .img_list,
+.trabalheh2,
+.trabalheh3 {
     margin-left: 2rem;
 }
 
-#trabalhe_content .trabalheh3{
+#trabalhe_content .trabalheh3 {
     margin-left: 5rem;
 }
 
 #trabalhe_content h3 {
-    margin-bottom:20px;
+    margin-bottom: 20px;
     color: #615f5f;
 }
 
@@ -150,7 +181,7 @@ main {
 }
 
 #trabalhe_content .img_list ul {
-    font-size:1.7rem;
+    font-size: 1.7rem;
     padding-left: 8rem;
     text-align: justify;
     padding-right: 2rem;
@@ -168,7 +199,7 @@ main {
     list-style: none;
     text-align: center;
     margin-bottom: 1rem;
-    margin-top:1.5rem;
+    margin-top: 1.5rem;
 }
 
 #trabalhe_content .img_list ul .button button {
@@ -183,7 +214,7 @@ main {
 /* INÍCIO PERSONALIZAÇÃO NOSSA HISTÓRIA */
 
 #historia_content {
-    background-color:#fb530be3;
+    background-color: #fb530be3;
     width: 70%;
     height: 100%;
     padding: 1rem;
@@ -193,14 +224,14 @@ main {
     color: white;
 }
 
-#historia_content h2 {  
+#historia_content h2 {
     font-size: 1.5rem;
     padding: 10px 0px 3px 5px;
 }
 
-#historia_content hr{
+#historia_content hr {
     padding-bottom: 1px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 
 #historia_content .historia_text {
@@ -216,7 +247,7 @@ main {
 .main-content-cadastro {
     max-width: 60%;
     margin: 0 auto;
-    padding: 4rem 0;
+    padding: 0 0, 4rem 0;
     display: flex;
     flex-direction: column;
 }
@@ -224,6 +255,7 @@ main {
 .main-content-cadastro h2 {
     margin-bottom: 2rem;
     text-align: center;
+    margin-top: 1rem;
 }
 
 .main-content-cadastro .main-button {
@@ -237,3 +269,80 @@ main {
     border-radius: 0.5rem;
 }
 
+.senha {
+    width: 100%;
+}
+
+/* messages */
+
+.message {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--color-dark-text);
+    background: var(--color-gray-2);
+    color: var(--color-dark-text);
+}
+
+.message-error {
+    border: 1px solid var(--color-error-dark);
+    background: var(--color-error-light);
+    color: var(--color-error-dark);
+}
+
+.message-success {
+    border: 1px solid var(--color-success-dark);
+    background: var(--color-success-light);
+    color: var(--color-success-dark);
+}
+
+.message-warning {
+    border: 1px solid var(--color-warning-dark);
+    background: var(--color-warning-light);
+    color: var(--color-warning-dark);
+}
+
+.message-alert {
+    border: 1px solid var(--color-alert-dark);
+    background: var(--color-alert-light);
+    color: var(--color-alert-dark);
+}
+
+.message-info {
+    border: 1px solid var(--color-info-dark);
+    background: var(--color-info-light);
+    color: var(--color-info-dark);
+}
+
+.message-debug {
+    border: 1px solid var(--color-debug-dark);
+    background: var(--color-debug-light);
+    color: var(--color-debug-dark);
+}
+
+.messages-container {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: calc(var(--spacing-gutter-medium) / 2);
+}
+
+.main-content {
+    padding-top: 0;
+}
+
+.center {
+    text-align: center;
+}
+
+.m-x {
+    margin: 0 var(--spacing-gutter-medium);
+}
+
+.m-y {
+    margin: var(--spacing-gutter-medium) 0;
+}
+
+.deu-erro {
+    max-width: 144rem;
+    margin: 0 auto;
+    padding: var(--spacing-gutter-medium);
+}

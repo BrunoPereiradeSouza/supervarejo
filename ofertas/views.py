@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CandidatoForm, OfertaForm, UsuarioForm
+from .forms import CandidatoForm, OfertaForm
 from .models import Oferta
-
+from django.contrib.auth.models import User
+from django.http import HttpResponse
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 def index(request):
 
@@ -21,10 +25,12 @@ def trabalhe_conosco(request):
                   {'form': form})
 
 
+@login_required(login_url='/login/')
 def ofertas(request):
-    ofertas = Oferta.objects.all()
-    context = {'ofertas': ofertas}
-    return render(request, 'ofertas/pages/ofertas.html', context)
+    if request.user.is_authenticated:
+        ofertas = Oferta.objects.all()
+        context = {'ofertas': ofertas}
+        return render(request, 'ofertas/pages/ofertas.html', context)
 
 
 def ofertas_editar(request, id):
@@ -74,11 +80,43 @@ def ofertas_admin(request):
 
 
 def cadastrar_usuario(request):
+
     if request.method == 'POST':
-        form = UsuarioForm(request.POST)
-        if form.is_valid():
-            form.save()
-            form = UsuarioForm()
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
+
+        user = User.objects.filter(username=username).first()
+        e_mail = User.objects.filter(email=email).first()
+
+        if user or e_mail:
+            messages.error(request, 'Já existe um usuário com esse nome ou email.')
+            return redirect('cadastro')
+        
+        user = User.objects.create_user(username=username, email=email, password=senha)
+        user.save()
+
+        messages.success(request, 'Usuário cadastrado com sucesso!')
+        return redirect('login')
+
     else:
-        form = UsuarioForm()
-    return render(request, 'ofertas/pages/cadastro.html', {'form': form})
+        return render(request, 'ofertas/pages/cadastro.html')
+
+
+def login_usuario(request):
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        senha = request.POST.get('senha')
+
+        user = authenticate(username=username, password=senha)
+
+        if user:
+            login(request, user)
+            messages.success(request, 'login realizado com sucesso!')
+            return redirect('index')
+        else:
+            messages.error(request, 'Usuário ou senha inválidos!')
+            return redirect('login')
+    else:
+        return render(request, 'ofertas/pages/login.html')

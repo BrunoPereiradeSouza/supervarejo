@@ -1,0 +1,9 @@
+{% if messages %}
+<div class="main-content center deu-erro messages-container">
+    {% for message in messages %}
+        <div class="message {{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
