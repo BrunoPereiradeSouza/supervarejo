@@ -89,10 +89,15 @@ def cadastrar_usuario(request):
         user = User.objects.filter(username=username).first()
         e_mail = User.objects.filter(email=email).first()
 
-        if user or e_mail:
-            messages.error(request, 'Já existe um usuário com esse nome ou email.')
+        if user and e_mail:
+            messages.error(request, 'Já existe um usuário com esse nome e email.')
             return redirect('cadastro')
-        
+        elif user:
+            messages.error(request, 'Já existe um usuário com esse nome.')
+            return redirect('cadastro')
+        elif e_mail:
+            messages.error(request, 'Já existe um usuário com esse email.')
+            return redirect('cadastro')
         user = User.objects.create_user(username=username, email=email, password=senha)
         user.save()
 
