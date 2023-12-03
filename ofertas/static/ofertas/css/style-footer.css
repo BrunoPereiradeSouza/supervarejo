@@ -25,9 +25,9 @@ footer {
 footer #footer_content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    padding: 2rem;
+    padding: 1rem;
     background-color: var(--color-background);
-    gap: 1rem 6rem;
+    gap: .2rem 6rem;
     color: var(--color-font);
     margin-top: 5rem;
 }
@@ -39,7 +39,7 @@ footer #footer_content #request {
 }
 
 footer #footer_content #request h2 {
-    font-size: 1rem;
+    font-size: .9rem;
     margin-bottom: 1rem;
     margin-right: 0.5rem;
     padding-top: 2rem;
@@ -50,7 +50,7 @@ footer #footer_content #request p {
 }
 
 footer #footer_content #request img {
-    width: 8rem;
+    width: 7rem;
     margin-left: 3rem;
     padding: 1rem 0rem;
     margin-bottom: 0.5rem;

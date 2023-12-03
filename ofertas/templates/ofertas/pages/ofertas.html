@@ -15,24 +15,31 @@
                     </div>
 
                     <div class="container-card">
-                        {% for oferta in ofertas %}
+                        {% for oferta in page.object_list %}
                         <div class="card">
                             <img src="{{oferta.imagem.url}}" alt="produto">
                             <div class="card-description">
-                                <strong>
                                     <h2>{{oferta.nome_produto}}</h2>
-                                </strong>
+                                    <hr class="card-hr">
                                 <strong>
-                                        <p class="preco_antigo"><s>DE R$ {{oferta.valor_antigo}}</s></p>
-                                        <p class="preco_word">POR</p>
-                                        <p class="novo_preco">R$ {{oferta.novo_valor}}</p>
+                                    <p class="preco_antigo"><s>DE R$ {{oferta.valor_antigo}}</s></p>
+                                    <p class="preco_word">POR</p>
+                                    <p class="novo_preco">R$ {{oferta.novo_valor}}</p>
                                 </strong>
                             </div>
                         </div>
                         {% endfor %}
 
                     </div>
-                    
+
+                    {% if page.has_previous %}
+                    <a href="{% url 'ofertas' %}?page={{page.previous_page_number}}">Anterior</a>
+                    {% endif %}
+                    {% if page.has_next %}
+                    <a href="{% url 'ofertas' %}?page={{page.next_page_number}}">Próximo</a>
+                    {% endif %}
+
+
                     <div id="footer_container_card">
                         <div class="whatsapp">
                             <i id='whatsapp' class="fa-brands fa-whatsapp"></i>
@@ -42,14 +49,8 @@
                             <i id="loc" class="fa-solid fa-location-dot"></i>
                             <p>Rua Alfonso, 587, São Paulo/SP</p>
                         </div>
-                        <p class="ofertas_validas">Ofertas válidas até acabar o estoque!</p>
                         <hr class="ofertas_hr">
-                        <p class="lorem">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque odio
-                            consectetur nam vero corporis. Suscipit laborum animi eveniet expedita minima similique
-                            ipsam voluptate sint facilis nulla, ut voluptatibus molestias omnis.
-                            Alias esse deserunt expedita earum quaerat incidunt, quo recusandae molestias harum eos eum
-                            et libero tempora consequatur sit velit neque nobis voluptas! Provident harum nostrum
-                            dolorem iure molestias. Corporis, assumenda?</p>
+                        <p class="ofertas_validas">Ofertas válidas até acabar o estoque!</p>
                     </div>
                 </div>
             </div>

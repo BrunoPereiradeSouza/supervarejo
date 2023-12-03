@@ -19,7 +19,7 @@
 
 
 .imglogo {
-    width: 50px;
+    width: 80px;
 }
 
 .header {
@@ -61,6 +61,18 @@
     border: none;
     color: var(--color-blackbot);
     cursor: pointer;
+}
+
+.icon-login {
+    padding: .6rem;
+    border: 1px solid black;
+    border-radius: 2rem;
+    color: black;
+    margin-right: 5px;
+}
+
+.login {
+    text-align: center;
 }
 
 @media screen and (max-width: 840px) {

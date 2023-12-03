@@ -207,11 +207,14 @@ main {
 /* FIM PERSONALIZAÇÃO NOSSA HISTÓRIA */
 
 .main-content-cadastro {
-    max-width: 60%;
-    margin: 0 auto;
-    padding: 0 0, 4rem 0;
+    max-width: 40%;
+    margin: 8rem auto;
+    padding: 2rem 4rem;
     display: flex;
     flex-direction: column;
+    background-color: #fff;
+    border: .5px solid #ddd;
+    border-radius: .3rem;
 }
 
 .main-content-cadastro h2 {

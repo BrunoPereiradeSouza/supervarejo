@@ -104,7 +104,7 @@
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    width: 300px;
+    width: 200px;
     text-align: center;
     justify-content: center;
     display: flex;
@@ -138,11 +138,16 @@
     color: black;
 }
 
+.card-hr {
+    margin: 0 0 1rem 0;
+    padding: 0;
+}
+
 .card-description .preco_antigo {
     margin-bottom: 5px;
     color: red;
     margin: 0, 0, 5, 0;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .card-description .preco_word {
@@ -152,7 +157,7 @@
 
 .card-description .novo_preco {
     color: black;
-    font-size: 36px;
+    font-size: 34px;
     margin: 0;
     padding: 0;
 }
@@ -184,6 +189,7 @@
 
 #footer_container_card .loc p {
     margin-top: 5px;
+    margin-bottom: 0;
 }
 
 #footer_container_card .ofertas_validas {
@@ -194,6 +200,7 @@
 
 .ofertas_hr {
     margin-bottom: 1rem;
+    color: white;
 }
 
 #footer_container_card .lorem {
