@@ -1,40 +1,40 @@
 {% include 'ofertas/partials/head.html' %}
 
 <body>
-    
+
     {% include 'ofertas/partials/header.html' %}
 
     {% include 'ofertas/partials/messages.html' %}
 
-        <div class="main-content-cadastro">
+    <div class="main-content-cadastro">
 
-            <h2>Faça login com seu usuário e senha</h2>
+        <h2><i class="fa-regular fa-user titulo-login"></i> login do cliente</h2>
 
-            <form method="post" action="{% url 'login' %}">
-                {% csrf_token %}
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
 
-                <div class="mb-3">
-                   Nome: 
-                   <input type="text" name="username" class="form-control">
-                </div>
+            <div class="mb-3">
+                Nome:
+                <input type="text" name="username" class="form-control">
+            </div>
 
 
-                <div class="mb-3">
-                    Senha:
-                    <input type="password" name="senha" class="form-control">
-                </div>
-                
-                <div class="main-button">
-                    <button type="submit" class="button-cadastro">Fazer login</button>
-                </div>
+            <div class="mb-3">
+                Senha:
+                <input type="password" name="senha" class="form-control">
+            </div>
 
-            </form>
+            <div class="main-button">
+                <button type="submit" class="button-cadastro">Fazer login</button>
+            </div>
+            <div class="cadastronone">
+                <p>Não tem cadastro? <a href="{% url 'cadastro' %}">cadastre-se</a></p>
+            </div>
+        </form>
 
-        </div>
+    </div>
 
     {% include 'ofertas/partials/footer.html' %}
 </body>
 
-    {% include 'ofertas/partials/script.html' %}
-
-    
+{% include 'ofertas/partials/script.html' %}

@@ -29,7 +29,7 @@ def trabalhe_conosco(request):
 def ofertas(request):
     if request.user.is_authenticated:
         ofertas = Oferta.objects.all()
-        ofertas_paginator = Paginator(ofertas, 4)
+        ofertas_paginator = Paginator(ofertas, 12)
         page_num = request.GET.get('page')
         page = ofertas_paginator.get_page(page_num)
         return render(request, 'ofertas/pages/ofertas.html', {'page': page})

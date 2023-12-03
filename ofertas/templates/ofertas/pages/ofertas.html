@@ -19,8 +19,8 @@
                         <div class="card">
                             <img src="{{oferta.imagem.url}}" alt="produto">
                             <div class="card-description">
-                                    <h2>{{oferta.nome_produto}}</h2>
-                                    <hr class="card-hr">
+                                <h2>{{oferta.nome_produto}}</h2>
+                                <hr class="card-hr">
                                 <strong>
                                     <p class="preco_antigo"><s>DE R$ {{oferta.valor_antigo}}</s></p>
                                     <p class="preco_word">POR</p>
@@ -32,12 +32,16 @@
 
                     </div>
 
-                    {% if page.has_previous %}
-                    <a href="{% url 'ofertas' %}?page={{page.previous_page_number}}">Anterior</a>
-                    {% endif %}
-                    {% if page.has_next %}
-                    <a href="{% url 'ofertas' %}?page={{page.next_page_number}}">Próximo</a>
-                    {% endif %}
+                    <div class="pagination">
+
+                        {% if page.has_previous %}
+                        <a href="{% url 'ofertas' %}?page={{page.previous_page_number}}">Anterior</a>
+                        {% endif %}
+                        {% if page.has_next %}
+                        <a href="{% url 'ofertas' %}?page={{page.next_page_number}}">Próximo</a>
+                        {% endif %}
+
+                    </div>
 
 
                     <div id="footer_container_card">

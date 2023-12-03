@@ -8,7 +8,8 @@
         </svg>
     </button>
     <div class="IMG-logo">
-        <a href="{% url 'index' %}"><img src="{% static 'ofertas/img/logo.png' %}" class="imglogo" alt="Logo da página"></a>
+        <a href="{% url 'index' %}"><img src="{% static 'ofertas/img/logo.png' %}" class="imglogo"
+                alt="Logo da página"></a>
     </div>
 
 
@@ -24,10 +25,13 @@
         <a href="{% url 'ofertas' %}" class="#">Ofertas</a>
         <a href="{% url 'trabalhe_conosco' %}" class="active">Trabalhe conosco</a>
         <a href="{% url 'contato' %}" class="active">Fale conosco</a>
-        <a href="#" class="login"><i class="fa-regular fa-user icon-login"></i>login/cadastro</a>
+        <div class="login">
+            <i class="fa-regular fa-user icon-login"></i>
+            <a href="{% url 'login' %}">login</a> /
+            <a href="{% url 'cadastro' %}">cadastre-se</a>
+        </div>
 
     </div>
 
 
 </div>
-

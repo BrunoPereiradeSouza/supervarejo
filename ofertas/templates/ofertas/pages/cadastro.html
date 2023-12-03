@@ -8,7 +8,7 @@
 
         <div class="main-content-cadastro">
 
-            <h2>Criar seu cadastro</h2>
+            <h2><i class="fa-regular fa-pen-to-square titulo-login"></i>Criar seu cadastro</h2>
 
             <form method="post" action="{% url 'cadastro' %}">
                 {% csrf_token %}
@@ -30,6 +30,10 @@
                 
                 <div class="main-button">
                     <button type="submit" class="button-cadastro">criar seu cadastro</button>
+                </div>
+
+                <div class="cadastronone">
+                    <p>Já tem cadastro? <a href="{% url 'login' %}">login</a></p>
                 </div>
 
             </form>

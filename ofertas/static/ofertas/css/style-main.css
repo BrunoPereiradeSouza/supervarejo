@@ -311,3 +311,20 @@ main {
     margin: 0 auto;
     padding: var(--spacing-gutter-medium);
 }
+
+.cadastronone {
+    margin-top: .5rem;
+    text-align: center;
+    font-size: .8rem;
+}
+
+.titulo-login {
+    margin-right: .8rem;
+}
+
+@media screen and (max-width: 1000px) {
+    
+    .main-content-cadastro {
+        width: 80%;
+    }
+}
