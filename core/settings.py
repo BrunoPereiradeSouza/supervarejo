@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ofertas'
+    'ofertas',
+    'rolepermissions'
 ]
 
 MIDDLEWARE = [
@@ -135,3 +136,6 @@ MESSAGE_TAGS = {
     constants.SUCCESS: 'message-success',
     constants.WARNING: 'message-warning',
 }
+
+
+ROLEPERMISSIONS_MODULE = 'core.roles'

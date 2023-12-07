@@ -2,10 +2,13 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CandidatoForm, OfertaForm
 from .models import Oferta
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.paginator import Paginator
+from rolepermissions.roles import assign_role
+from rolepermissions.decorators import has_role_decorator
+
 
 def index(request):
 
@@ -25,7 +28,6 @@ def trabalhe_conosco(request):
                   {'form': form})
 
 
-@login_required(login_url='/login/')
 def ofertas(request):
     if request.user.is_authenticated:
         ofertas = Oferta.objects.all()
@@ -33,6 +35,9 @@ def ofertas(request):
         page_num = request.GET.get('page')
         page = ofertas_paginator.get_page(page_num)
         return render(request, 'ofertas/pages/ofertas.html', {'page': page})
+    else:
+        messages.info(request, 'Você precisa estar logado para ver as ofertas!')
+        return redirect('login')
 
 
 def ofertas_editar(request, id):
@@ -74,11 +79,13 @@ def contato(request):
     return render(request, 'ofertas/pages/contato.html')
 
 
+@has_role_decorator('administrador')
 def ofertas_admin(request):
     ofertas = Oferta.objects.all()
     num_ofertas = Oferta.objects.count()
     context = {'ofertas': ofertas, 'num_ofertas': num_ofertas}
     return render(request, 'ofertas/pages/ofertas_admin.html', context)
+
 
 
 def cadastrar_usuario(request):
@@ -100,8 +107,10 @@ def cadastrar_usuario(request):
         elif e_mail:
             messages.error(request, 'Já existe um usuário com esse email.')
             return redirect('cadastro')
+        
         user = User.objects.create_user(username=username, email=email, password=senha)
         user.save()
+        assign_role(user, 'usuario')
 
         messages.success(request, 'Usuário cadastrado com sucesso!')
         return redirect('login')
@@ -127,3 +136,8 @@ def login_usuario(request):
             return redirect('login')
     else:
         return render(request, 'ofertas/pages/login.html')
+
+
+def usuario_logout(request):
+    logout(request)
+    return redirect('login')
