@@ -1,0 +1,26 @@
+{% include 'ofertas/partials/head.html' %}
+
+<body>
+    
+    <h2 class="h2_admin">Lista de Candidatos</h2>
+    <div class="main-content-admin">
+        <table class=" table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Vaga Desejada</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for candidato in candidatos %}
+                <tr>
+                    <td>{{candidato.nome}}</td>
+                    <td>{{candidato.vaga_emprego}}</td>
+                    <td><a href="{% url 'candidato_detalhe' id=candidato.id %}">Ver</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+</body>

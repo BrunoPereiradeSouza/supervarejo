@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CandidatoForm, OfertaForm
-from .models import Oferta
+from .forms import CandidatoForm, OfertaForm, OfertaFilterForm
+from .models import Oferta, Candidato
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.paginator import Paginator
 from rolepermissions.roles import assign_role
@@ -30,16 +29,20 @@ def trabalhe_conosco(request):
 
 def ofertas(request):
     if request.user.is_authenticated:
-        ofertas = Oferta.objects.all()
+        categoria = request.GET.get('categoria')
+        ofertas = Oferta.objects.filter(categoria=categoria)
         ofertas_paginator = Paginator(ofertas, 12)
         page_num = request.GET.get('page')
         page = ofertas_paginator.get_page(page_num)
-        return render(request, 'ofertas/pages/ofertas.html', {'page': page})
+        form = OfertaFilterForm()
+
+        return render(request, 'ofertas/pages/ofertas.html', {'page': page, 'form': form})
     else:
         messages.info(request, 'Você precisa estar logado para ver as ofertas!')
         return redirect('login')
 
 
+@has_role_decorator('administrador')
 def ofertas_editar(request, id):
     oferta = get_object_or_404(Oferta, id=id)
 
@@ -55,12 +58,14 @@ def ofertas_editar(request, id):
     return render(request, 'ofertas/pages/form_oferta.html', {'form': form})
 
 
+@has_role_decorator('administrador')
 def oferta_remover(request, id):
     oferta = get_object_or_404(Oferta, id=id)
     oferta.delete()
     return redirect('ofertas_admin')
 
 
+@has_role_decorator('administrador')
 def ofertas_criar(request):
     if request.method == 'POST':
         form = OfertaForm(request.POST, request.FILES)
@@ -141,3 +146,15 @@ def login_usuario(request):
 def usuario_logout(request):
     logout(request)
     return redirect('login')
+
+
+def candidato_listar(request):
+    candidatos = Candidato.objects.all()
+    context = {'candidatos': candidatos}
+    return render(request, 'ofertas/pages/candidatos_admin.html', context)
+
+
+def candidato_detalhe(request, id):
+    candidato = get_object_or_404(Candidato, id=id)
+    context = {'candidato': candidato}
+    return render(request, 'ofertas/pages/candidato_detalhe.html', context)

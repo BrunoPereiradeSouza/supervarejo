@@ -22,17 +22,30 @@
 #master {
     display: flex;
     flex-direction: column;
+
 }
 
 .main_ofertas {
     display: flex;
     justify-content: center;
+    padding: 0;
 }
 
 .main_ofertas_main {
-    margin-top: 5rem;  
+    margin-top: 1rem;  
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+}
+
+.main_ofertas_main a {
+    margin-left: 8rem;
+    text-decoration: none;
+    color: white;
+    background-color: var(--color-background);
+    width: 15%;
+    text-align: center;
+    padding: .5rem 0;
+    border-radius: 5px;
 }
 
 .main_ofertas_main .principal {
@@ -49,7 +62,7 @@
     flex-direction: column;
     justify-content: center;
     width: 80%;
-    margin-top: 2rem;
+    margin-top: 1rem;
     background-color: #e2dddd;;
     border-radius: 5px;
     margin-top: 5rem;
@@ -291,4 +304,13 @@ td, th {
 
 .pagination a {
     text-decoration: none;
+}
+
+.form-filter-oferta {
+    margin-top: 3rem;
+    width: 50%;
+}
+
+.form-filter-oferta button {
+    margin-left: .5rem;
 }

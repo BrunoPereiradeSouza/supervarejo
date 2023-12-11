@@ -19,9 +19,9 @@
 
 
 .container {
-    margin: 30px auto;
+    margin: 4rem auto;
     max-width: 800px;
-    background: #fff;
+    background: white;
     border: 1px solid #ddd;
     border-radius: 5px;
     display: flex;
@@ -37,6 +37,7 @@
     max-width: 100%;
     height:500px;
     border-radius: 10px;
+    background: rgb(238, 235, 235);
 }
 
 .form {
@@ -46,6 +47,7 @@
 
 .form h2 {
     font-size: 24px;
+    margin-bottom: 2rem;
 }
 
 .form-group {
@@ -68,11 +70,21 @@ select {
     border-radius: 3px;
 }
 
+.button-contato {
+    background: #0078d4;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 30%;
+}
+
 button {
     background: #0078d4;
     color: #fff;
     padding: 10px 15px;
     border: none;
-    border-radius: 3px;
+    border-radius: 6px;
     cursor: pointer;
 }

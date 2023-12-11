@@ -1,11 +1,23 @@
+{% load permission_tags %}
 {% load static %}
 {% include 'ofertas/partials/head.html' %}
 
 <body>
     {% include 'ofertas/partials/header.html' %}
 
+    <form method="get" class="form-filter-oferta" <div class="mb-3">
+        <label action="{% url 'ofertas' %}" for="categorias" name="categoria">{{form.categoria}}</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+    </form>
+
+
     <div id="master">
         <div class="main_ofertas_main">
+            {% if user|has_role:'administrador' %}
+            <a href="{% url 'ofertas_admin' %}">Administrar ofertas</a>
+            {% endif %}
+
             <div class="main_ofertas">
                 <div class="main_container_card">
                     <div class="economia">
