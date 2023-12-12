@@ -1,7 +1,9 @@
 {% include 'ofertas/partials/head.html' %}
 
 <body>
-    
+
+    <a href="{% url 'index' %}" class="btn btn-success mb-3 new voltar">Voltar para o site</a>
+
     <h2 class="h2_admin">Lista de Candidatos</h2>
     <div class="main-content-admin">
         <table class=" table table-bordered">
@@ -17,7 +19,7 @@
                 <tr>
                     <td>{{candidato.nome}}</td>
                     <td>{{candidato.vaga_emprego}}</td>
-                    <td><a href="{% url 'candidato_detalhe' id=candidato.id %}">Ver</a></td>
+                    <td><a href="{% url 'candidato_detalhe' id=candidato.id %}" class="link-candidato-ver"><i class="fa-regular fa-eye"></i></a></td>
                 </tr>
                 {% endfor %}
             </tbody>

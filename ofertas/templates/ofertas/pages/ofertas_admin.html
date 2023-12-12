@@ -1,9 +1,12 @@
 {% include 'ofertas/partials/head.html' %}
 
-<a href="{% url 'ofertas_criar' %}" class="btn btn-success mb-3 button_admin">Nova oferta</a>
 
 <body>
 
+    <div class="button-admin">
+        <a href="{% url 'ofertas_criar' %}" class="btn btn-success mb-3 new">Nova oferta</a>
+        <a href="{% url 'ofertas' %}" class="btn btn-secondary mb-3 read">Ver ofertas no site</a>
+    </div>
     <h2 class="h2_admin">Lista de Ofertas</h2>
     <div class="main-content-admin">
         <table class=" table table-bordered">
@@ -24,15 +27,15 @@
                     <td>R$ {{oferta.novo_valor}}</td>
                     <td>{{oferta.imagem}}</td>
                     <td>
-                        <a href="{% url 'ofertas_editar' id=oferta.id %}" class="btn btn-primary btm-sm"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <a href="{% url 'ofertas_remover' id=oferta.id %}" class="btn btn-danger btm-sm"><i class="fa-solid fa-trash"></i></a>
+                        <a href="{% url 'ofertas_editar' id=oferta.id %}" class="btn btn-primary btm-sm"><i
+                                class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="{% url 'ofertas_remover' id=oferta.id %}" class="btn btn-danger btm-sm"><i
+                                class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
-
-    <a href="{% url 'ofertas' %}" class="btn btn-secondary mb-3 button_admin">Ver ofertas no site</a>
 
 </body>

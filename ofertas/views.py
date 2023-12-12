@@ -4,10 +4,10 @@ from .models import Oferta, Candidato
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.core.paginator import Paginator
 from rolepermissions.roles import assign_role
 from rolepermissions.decorators import has_role_decorator
-
+from django.views.generic import ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def index(request):
 
@@ -27,19 +27,25 @@ def trabalhe_conosco(request):
                   {'form': form})
 
 
-def ofertas(request):
-    if request.user.is_authenticated:
-        categoria = request.GET.get('categoria')
-        ofertas = Oferta.objects.filter(categoria=categoria)
-        ofertas_paginator = Paginator(ofertas, 12)
-        page_num = request.GET.get('page')
-        page = ofertas_paginator.get_page(page_num)
-        form = OfertaFilterForm()
+class OfertaListar(LoginRequiredMixin, ListView):
+    login_url = '/login/'
+    model = Oferta
+    template_name = 'ofertas/pages/ofertas.html'
+    context_object_name = 'ofertas' 
+    paginate_by = 10
 
-        return render(request, 'ofertas/pages/ofertas.html', {'page': page, 'form': form})
-    else:
-        messages.info(request, 'Você precisa estar logado para ver as ofertas!')
-        return redirect('login')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = OfertaFilterForm(self.request.GET or None)
+        return context
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        self.form = OfertaFilterForm(self.request.GET or None)
+        if self.form.is_valid():
+            if self.form.cleaned_data.get('categoria'):
+                queryset = queryset.filter(categoria=self.form.cleaned_data['categoria'])
+        return queryset
 
 
 @has_role_decorator('administrador')
@@ -90,7 +96,6 @@ def ofertas_admin(request):
     num_ofertas = Oferta.objects.count()
     context = {'ofertas': ofertas, 'num_ofertas': num_ofertas}
     return render(request, 'ofertas/pages/ofertas_admin.html', context)
-
 
 
 def cadastrar_usuario(request):
@@ -148,12 +153,14 @@ def usuario_logout(request):
     return redirect('login')
 
 
+@has_role_decorator('administrador')
 def candidato_listar(request):
     candidatos = Candidato.objects.all()
     context = {'candidatos': candidatos}
     return render(request, 'ofertas/pages/candidatos_admin.html', context)
 
 
+@has_role_decorator('administrador')
 def candidato_detalhe(request, id):
     candidato = get_object_or_404(Candidato, id=id)
     context = {'candidato': candidato}

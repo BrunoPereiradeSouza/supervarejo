@@ -64,3 +64,32 @@
     cursor: pointer;
     margin:25px 0px 0px 0px;
 }
+
+.candidato-detail {
+    width: 80%;
+    margin: 5rem auto;
+}
+
+.img-candidato {
+    width: 45rem;
+    margin: 0 auto;
+}
+
+.label-candidato {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1.5rem;
+}
+
+.h1-candidato {
+    margin: 2rem;
+    text-align: center;
+}
+
+#link-button {
+    margin-top: 3rem;
+}
+
+.voltar {
+    margin: 4rem;
+}

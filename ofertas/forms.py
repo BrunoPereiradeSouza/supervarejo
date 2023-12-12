@@ -3,7 +3,6 @@ from django.forms import ModelForm
 from .models import Candidato, Oferta, Categoria_oferta
 
 
-
 class CandidatoForm(ModelForm):
 
     class Meta:
@@ -35,10 +34,9 @@ class OfertaForm(ModelForm):
 
 
 class OfertaFilterForm(forms.Form):
-    categoria = forms.ModelChoiceField(queryset=Categoria_oferta.objects.all(), required=False)
-    
+    categoria = forms.ModelChoiceField(queryset=Categoria_oferta.objects.all(), required=False) 
+       
     def __init__(self, *args, **kwargs):
         super(OfertaFilterForm, self).__init__(*args, **kwargs)
         for field in self.fields.values():
             field.widget.attrs['class'] = 'form-control'
-            

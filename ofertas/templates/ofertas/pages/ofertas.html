@@ -5,19 +5,19 @@
 <body>
     {% include 'ofertas/partials/header.html' %}
 
-    <form method="get" class="form-filter-oferta" <div class="mb-3">
-        <label action="{% url 'ofertas' %}" for="categorias" name="categoria">{{form.categoria}}</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Filtrar</button>
-    </form>
-
-
     <div id="master">
+        <form method="get" class="form-filtros">
+
+            <label for="categoria" class="form-label title-filter">Categoria:</label>
+            <div class="mb-3 filter-form">
+                <label class="campo-filter">{{ form.categoria }}</label>
+                <button type="submit" class="btn btn-primary button-filter">Filtrar</button>
+            </div>
+        </form>
         <div class="main_ofertas_main">
             {% if user|has_role:'administrador' %}
             <a href="{% url 'ofertas_admin' %}">Administrar ofertas</a>
             {% endif %}
-
             <div class="main_ofertas">
                 <div class="main_container_card">
                     <div class="economia">
@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="container-card">
-                        {% for oferta in page.object_list %}
+                        {% for oferta in ofertas %}
                         <div class="card">
                             <img src="{{oferta.imagem.url}}" alt="produto">
                             <div class="card-description">
@@ -44,17 +44,7 @@
 
                     </div>
 
-                    <div class="pagination">
-
-                        {% if page.has_previous %}
-                        <a href="{% url 'ofertas' %}?page={{page.previous_page_number}}">Anterior</a>
-                        {% endif %}
-                        {% if page.has_next %}
-                        <a href="{% url 'ofertas' %}?page={{page.next_page_number}}">Próximo</a>
-                        {% endif %}
-
-                    </div>
-
+                    {% include 'ofertas/partials/pagination.html' %}
 
                     <div id="footer_container_card">
                         <div class="whatsapp">

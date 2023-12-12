@@ -1,15 +1,22 @@
+{% load permission_tags %}
 {% load static %}
 {% include 'ofertas/partials/head.html' %}
 
 <body>
     {% include 'ofertas/partials/header.html' %}
 
+    {% if user|has_role:'administrador' %}
+    <div class="main_ofertas_main">
+        <a href="{% url 'candidato_listar' %}" id="link-button">Ver Candidatos</a>
+    </div>
+    {% endif %}
+
     <div class="container_2">
         <h1>Trabalhe conosco</h1>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="mb-3">
-                <label for="nome" class="form-control">Nome Completo:  {{form.nome}}</label>
+                <label for="nome" class="form-control">Nome Completo: {{form.nome}}</label>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-control">Email: {{form.email}}</label>

@@ -1,13 +1,50 @@
 {% include 'ofertas/partials/head.html' %}
 
 <body>
-    
-    <h2>{{candidato.nome}}</h2>
-    <p>{{candidato.email}}</p>
-    <p>{{candidato.telefone}}</p>
-    <p>{{candidato.endereco}}</p>
-    <p>{{candidato.estado}}</p>
-    <p>{{candidato.vaga_emprego}}</p>
-    <a href="{{curriculo.url}}"></a>
+
+    <a href="{% url 'candidato_listar' %}" class="btn btn-success mb-3 new voltar">Voltar para a lista de candidatos</a>
+
+    <h1 class="h1-candidato">Informações do candidato {{candidato.nome}}:</h1>
+
+    <div class="candidato-detail">
+        <form class="row g-3 needs-validation" novalidate>
+
+            <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="validationCustom01" value="{{candidato.nome}}" required>
+            </div>
+
+            <div class="col-md-4">
+                <label for="validationCustom02" class="form-label">Email</label>
+                <input type="email" class="form-control" id="validationCustom02" value="{{candidato.email}}" required>
+            </div>
+
+            <div class="col-md-4">
+                <label for="validationCustomUsername" class="form-label">Telefone</label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername"
+                        aria-describedby="inputGroupPrepend" required value="{{candidato.telefone}}">
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <label for="validationCustom03" class="form-label">Endereço</label>
+                <input type="text" class="form-control" id="validationCustom03" required value="{{candidato.endereco}}">
+            </div>
+            
+            <div class="col-md-3">
+                <label for="validationCustom04" class="form-label">Estado</label>
+                <input type="text" class="form-control" id="validationCustom03" required value="{{candidato.estado}}">
+            </div>
+
+            <div class="col-md-3">
+                <label for="validationCustom05" class="form-label">Vaga Desejada</label>
+                <input type="text" class="form-control" id="validationCustom05" required value="{{candidato.vaga_emprego}}">
+            </div>
+
+                <label for="validationCustom05" class="form-label label-candidato">Curriculo</label>
+                <img class="img-candidato" src="{{candidato.curriculo.url}}" alt="curriculo">
+        </form>
+    </div>
 
 </body>
