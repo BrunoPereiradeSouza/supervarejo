@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CandidatoForm, OfertaForm, OfertaFilterForm
+from .forms import CandidatoForm, OfertaForm, OfertaFilterForm, ContatoForm
 from .models import Oferta, Candidato
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -32,7 +32,7 @@ class OfertaListar(LoginRequiredMixin, ListView):
     model = Oferta
     template_name = 'ofertas/pages/ofertas.html'
     context_object_name = 'ofertas' 
-    paginate_by = 10
+    paginate_by = 12
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -165,3 +165,24 @@ def candidato_detalhe(request, id):
     candidato = get_object_or_404(Candidato, id=id)
     context = {'candidato': candidato}
     return render(request, 'ofertas/pages/candidato_detalhe.html', context)
+
+
+def candidato_remover(request, id):
+    candidato = get_object_or_404(Candidato, id=id)
+    candidato.delete()
+    return redirect('candidato_listar')
+
+
+def contato_criar(request):
+    if request.method == 'POST':
+        form = ContatoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            form = ContatoForm()
+            messages.success(request, 'Seu contato foi registrado!')
+            return redirect('index')
+    else:
+        form = CandidatoForm()
+
+    return render(request, 'ofertas/pages/contato.html', 
+                  {'form': form})

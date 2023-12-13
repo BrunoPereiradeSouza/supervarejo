@@ -359,3 +359,12 @@ td, th {
     margin-left: 5rem;
 }
 
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: -.5rem .5rem 1.5rem rgba(0, 0, 0, .2);
+}
+
+.card {
+    transition: all 300ms ease-in-out;
+}

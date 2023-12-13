@@ -45,3 +45,16 @@ class Candidato(models.Model):
 
     def __str__(self):
         return self.nome
+
+
+class Cidade(models.Model):
+    nome = models.CharField(max_length=100)
+    sigla = models.CharField(max_length=2)
+
+
+class Contato(models.Model):
+    nome = models.CharField(max_length=200)
+    cidade = models.ForeignKey(Cidade, on_delete=models.SET_NULL, null=True)
+    estado = models.ForeignKey(Estado, on_delete=models.SET_NULL, null=True)
+    email = models.EmailField()
+    telefone = models.IntegerField()

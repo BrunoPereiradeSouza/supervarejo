@@ -19,7 +19,8 @@
                 <tr>
                     <td>{{candidato.nome}}</td>
                     <td>{{candidato.vaga_emprego}}</td>
-                    <td><a href="{% url 'candidato_detalhe' id=candidato.id %}" class="link-candidato-ver"><i class="fa-regular fa-eye"></i></a></td>
+                    <td><a href="{% url 'candidato_detalhe' id=candidato.id %}" class="link-candidato-ver"><i
+                                class="fa-regular fa-eye"></i></a></td>
                 </tr>
                 {% endfor %}
             </tbody>

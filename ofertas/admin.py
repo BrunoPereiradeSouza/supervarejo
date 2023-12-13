@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Oferta, Estado, Candidato, Vaga_emprego, Categoria_oferta
+from .models import Oferta, Estado, Candidato, Vaga_emprego, Categoria_oferta, Contato, Cidade
 
 
 @admin.register(Estado)
@@ -24,3 +24,8 @@ class Vaga_empregoAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Categoria_oferta)
+
+
+admin.site.register(Contato)
+
+admin.site.register(Cidade)

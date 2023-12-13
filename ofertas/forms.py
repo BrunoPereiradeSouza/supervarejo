@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Candidato, Oferta, Categoria_oferta
+from .models import Candidato, Oferta, Categoria_oferta, Contato
 
 
 class CandidatoForm(ModelForm):
@@ -40,3 +40,17 @@ class OfertaFilterForm(forms.Form):
         super(OfertaFilterForm, self).__init__(*args, **kwargs)
         for field in self.fields.values():
             field.widget.attrs['class'] = 'form-control'
+
+
+class ContatoForm(ModelForm):
+
+    class Meta:
+        model = Contato
+        fields = '__all__'
+        widgets = {
+            'nome': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'telefone': forms.TextInput(attrs={'class': 'form-control'}),
+            'estado': forms.Select(attrs={'class': 'form-control'}),
+            'cidade': forms.Select(attrs={'class': 'form-control'}),
+        }
