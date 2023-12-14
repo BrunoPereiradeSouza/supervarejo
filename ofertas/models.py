@@ -50,11 +50,14 @@ class Candidato(models.Model):
 class Cidade(models.Model):
     nome = models.CharField(max_length=100)
     sigla = models.CharField(max_length=2)
+    
+    def __str__(self):
+        return self.nome
 
 
 class Contato(models.Model):
     nome = models.CharField(max_length=200)
-    cidade = models.ForeignKey(Cidade, on_delete=models.SET_NULL, null=True)
-    estado = models.ForeignKey(Estado, on_delete=models.SET_NULL, null=True)
+    cidade = models.ForeignKey(Cidade, on_delete=models.CASCADE, default='')
+    estado = models.ForeignKey(Estado, on_delete=models.CASCADE, default='')
     email = models.EmailField()
     telefone = models.IntegerField()
