@@ -20,6 +20,7 @@ def trabalhe_conosco(request):
         if form.is_valid():
             form.save()
             form = CandidatoForm()
+            messages.success(request, 'Curriculo enviado com sucesso')
             return redirect('index')
     else:
         form = CandidatoForm()
