@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CandidatoForm, OfertaForm, OfertaFilterForm, ContatoForm
-from .models import Oferta, Candidato
+from .models import Oferta, Candidato, Contato
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -84,11 +84,6 @@ def ofertas_criar(request):
         form = OfertaForm()
 
     return render(request, 'ofertas/pages/form_oferta.html', {'form': form})
-
-
-def contato(request):
-
-    return render(request, 'ofertas/pages/contato.html')
 
 
 @has_role_decorator('administrador')
@@ -176,14 +171,26 @@ def candidato_remover(request, id):
 
 def contato_criar(request):
     if request.method == 'POST':
-        form = ContatoForm(request.POST, request.FILES)
+        form = ContatoForm(request.POST)
         if form.is_valid():
             form.save()
             form = ContatoForm()
             messages.success(request, 'Seu contato foi registrado!')
             return redirect('index')
     else:
-        form = CandidatoForm()
+        form = ContatoForm()
 
-    return render(request, 'ofertas/pages/contato.html', 
-                  {'form': form})
+    return render(request, 'ofertas/pages/contato.html', {'form': form})
+
+
+def contato_listar(request):
+    contatos = Contato.objects.all()
+    context = {'contatos': contatos}
+
+    return render(request, 'ofertas/pages/contato_admin.html', context)
+
+
+def contato_detalhe(request, id):
+    contato = get_object_or_404(Contato, id=id)
+    context = {'contato': contato}
+    return render(request, 'ofertas/pages/contato_detalhe.html', context)

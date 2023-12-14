@@ -57,7 +57,7 @@ class Cidade(models.Model):
 
 class Contato(models.Model):
     nome = models.CharField(max_length=200)
-    cidade = models.ForeignKey(Cidade, on_delete=models.CASCADE, default='')
-    estado = models.ForeignKey(Estado, on_delete=models.CASCADE, default='')
+    cidade = models.ForeignKey(Cidade, on_delete=models.CASCADE, blank=True)
+    estado = models.ForeignKey(Estado, on_delete=models.CASCADE, blank=True)
     email = models.EmailField()
     telefone = models.IntegerField()

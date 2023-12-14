@@ -1,0 +1,42 @@
+{% include 'ofertas/partials/head.html' %}
+
+<body>
+
+    <a href="{% url 'contato_listar' %}" class="btn btn-success mb-3 new voltar">Voltar para a lista de contatos</a>
+
+    <h1 class="h1-candidato">Informações de {{contato.nome}}:</h1>
+
+    <div class="candidato-detail">
+        <form class="row g-3 needs-validation" novalidate>
+
+            <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="validationCustom01" value="{{contato.nome}}" required>
+            </div>
+
+            <div class="col-md-4">
+                <label for="validationCustom02" class="form-label">Email</label>
+                <input type="email" class="form-control" id="validationCustom02" value="{{contato.email}}" required>
+            </div>
+
+            <div class="col-md-4">
+                <label for="validationCustomUsername" class="form-label">Telefone</label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="validationCustomUsername"
+                        aria-describedby="inputGroupPrepend" required value="{{contato.telefone}}">
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <label for="validationCustom03" class="form-label">Cidade</label>
+                <input type="text" class="form-control" id="validationCustom03" required value="{{contato.cidade}}">
+            </div>
+            
+            <div class="col-md-3">
+                <label for="validationCustom04" class="form-label">Estado</label>
+                <input type="text" class="form-control" id="validationCustom03" required value="{{contato.estado}}">
+            </div>
+        </form>
+    </div>
+
+</body>
